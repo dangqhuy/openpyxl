@@ -22,11 +22,7 @@ def find_images(archive, path):
 
     src = archive.read(path)
     tree = fromstring(src)
-    try:
-        drawing = SpreadsheetDrawing.from_tree(tree)
-    except TypeError:
-        warn("DrawingML support is incomplete and limited to charts and images only. Shapes and drawings will be lost.")
-        return [], []
+    drawing = SpreadsheetDrawing.from_tree(tree)
 
     rels_path = get_rels_path(path)
     deps = []

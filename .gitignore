@@ -1,0 +1,5 @@
+build/
+openpyxl.egg-info
+*.png
+*.pyc
+dist/
