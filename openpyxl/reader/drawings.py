@@ -22,7 +22,10 @@ def find_images(archive, path):
 
     src = archive.read(path)
     tree = fromstring(src)
-    drawing = SpreadsheetDrawing.from_tree(tree)
+    try:
+        drawing = SpreadsheetDrawing.from_tree(tree)
+    except BaseException as err:
+        warn('Error: %s' % err)
 
     rels_path = get_rels_path(path)
     deps = []
